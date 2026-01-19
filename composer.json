@@ -1,0 +1,83 @@
+{
+    "name": "accelade/filters",
+    "description": "Filter components for Accelade - text, select, date, boolean and custom filters for tables and grids",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fady Mondy",
+            "email": "info@3x1.io",
+            "homepage": "https://3x1.io",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/accelade/filters",
+    "keywords": [
+        "laravel",
+        "blade",
+        "accelade",
+        "filters",
+        "search",
+        "query",
+        "tables"
+    ],
+    "require": {
+        "php": "^8.2",
+        "accelade/accelade": "^1.0.0",
+        "accelade/forms": "^1.0.0",
+        "accelade/schemas": "^1.0.0",
+        "accelade/query-builder": "^1.0.0",
+        "illuminate/support": "^11.0|^12.0",
+        "illuminate/view": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Accelade\\Filters\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Accelade\\Filters\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Accelade\\Filters\\FiltersServiceProvider"
+            ],
+            "aliases": {
+                "Filter": "Accelade\\Filters\\Facades\\Filter"
+            }
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test:coverage": "pest --coverage",
+        "format": "pint",
+        "format:test": "pint --test",
+        "mago": "./mago lint src/ || mago lint src/",
+        "mago:fix": "./mago lint src/ --fix || mago lint src/ --fix",
+        "analyse": [
+            "@format:test",
+            "@mago"
+        ],
+        "ci": [
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "version": "v1.0.0"
+}
