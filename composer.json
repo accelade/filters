@@ -12,6 +12,24 @@
         }
     ],
     "homepage": "https://github.com/accelade/filters",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../accelade"
+        },
+        {
+            "type": "path",
+            "url": "../forms"
+        },
+        {
+            "type": "path",
+            "url": "../schemas"
+        },
+        {
+            "type": "path",
+            "url": "../query-builder"
+        }
+    ],
     "keywords": [
         "laravel",
         "blade",

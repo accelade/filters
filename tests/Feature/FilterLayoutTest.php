@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 use Accelade\Filters\Enums\FilterLayout;
 use Accelade\Filters\Enums\FilterWidth;
-use Tests\TestCase;
-
-uses(TestCase::class);
 
 // FilterLayout Tests
 it('has all layout cases', function () {

@@ -6,9 +6,6 @@ use Accelade\Filters\Components\SelectFilter;
 use Accelade\Filters\Components\TextFilter;
 use Accelade\Filters\FilterFactory;
 use Illuminate\Support\Facades\View;
-use Tests\TestCase;
-
-uses(TestCase::class);
 
 it('registers the config', function () {
     expect(config('filters.enabled'))->toBeTrue();

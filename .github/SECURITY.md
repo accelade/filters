@@ -26,7 +26,7 @@ Instead, please report them via one of the following methods:
 
 2. **Email**
    - Send an email to: security@example.com (replace with actual email)
-   - Use the subject line: `[SECURITY] Accelade Infolists Vulnerability Report`
+   - Use the subject line: `[SECURITY] Accelade Filters Vulnerability Report`
 
 ### What to Include
 
@@ -78,13 +78,19 @@ We will not pursue legal action against researchers who:
 
 ## Security Best Practices
 
-When using Accelade Infolists in your application:
+When using Accelade Filters in your application:
 
 ### XSS Prevention
 
 - Always escape user input in Blade templates using `{{ }}` (not `{!! !!}`)
-- Be cautious when using HtmlEntry or MarkdownEntry with user content
-- Sanitize HTML content before rendering
+- Sanitize filter values before using in database queries
+- Use parameterized queries (Laravel's query builder does this automatically)
+
+### SQL Injection Prevention
+
+- Always use Laravel's query builder or Eloquent when applying filters
+- Never concatenate raw user input into SQL queries
+- Validate filter column names against an allowlist
 
 ### Content Security Policy
 
@@ -97,9 +103,9 @@ $response->headers->set('Content-Security-Policy', "default-src 'self'; script-s
 
 ### Data Validation
 
-- Validate all data before passing to infolist entries
-- Sanitize file paths for ImageEntry
-- Validate URLs before displaying
+- Validate all filter values before applying to queries
+- Use proper type casting for numeric and date filters
+- Sanitize search terms in text filters
 
 ## Vulnerability Disclosure
 
@@ -114,4 +120,4 @@ After a vulnerability has been fixed, we will:
 
 For security-related questions that are not vulnerabilities, please open a regular GitHub issue or discussion.
 
-Thank you for helping keep Accelade Infolists and its users safe!
+Thank you for helping keep Accelade Filters and its users safe!

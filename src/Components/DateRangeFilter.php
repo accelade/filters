@@ -7,6 +7,7 @@ namespace Accelade\Filters\Components;
 use Accelade\Filters\Filter;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Date range filter component.
@@ -159,7 +160,7 @@ class DateRangeFilter extends Filter
                 }
                 $query->where($column, '>=', $fromDate);
             } catch (\Exception $e) {
-                // Invalid date, skip
+                Log::debug("DateRangeFilter: Invalid 'from' date format", ['value' => $from, 'error' => $e->getMessage()]);
             }
         }
 
@@ -171,7 +172,7 @@ class DateRangeFilter extends Filter
                 }
                 $query->where($column, '<=', $toDate);
             } catch (\Exception $e) {
-                // Invalid date, skip
+                Log::debug("DateRangeFilter: Invalid 'to' date format", ['value' => $to, 'error' => $e->getMessage()]);
             }
         }
 

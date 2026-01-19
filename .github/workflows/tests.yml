@@ -8,9 +8,38 @@ on:
   workflow_dispatch:
 
 jobs:
+  typescript-build:
+    runs-on: ubuntu-latest
+    name: TypeScript Build
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
   php-tests:
     runs-on: ${{ matrix.os }}
     name: PHP ${{ matrix.php }} - ${{ matrix.os }}
+    needs: typescript-build
     strategy:
       fail-fast: false
       matrix:
@@ -19,6 +48,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2

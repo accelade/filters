@@ -9,7 +9,6 @@ use Accelade\Filters\Enums\FilterWidth;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Collection;
 
 /**
  * Filter Panel manages a collection of filters with layout options.

@@ -8,9 +8,6 @@ use Accelade\Filters\Components\TextFilter;
 use Accelade\Filters\Enums\FilterLayout;
 use Accelade\Filters\Enums\FilterWidth;
 use Accelade\Filters\FilterPanel;
-use Tests\TestCase;
-
-uses(TestCase::class);
 
 it('can create a filter panel', function () {
     $panel = FilterPanel::make();

@@ -2,16 +2,12 @@
 
 declare(strict_types=1);
 
-use Accelade\Filters\QueryBuilder\Constraint;
 use Accelade\Filters\QueryBuilder\Constraints\BooleanConstraint;
 use Accelade\Filters\QueryBuilder\Constraints\DateConstraint;
 use Accelade\Filters\QueryBuilder\Constraints\NumberConstraint;
 use Accelade\Filters\QueryBuilder\Constraints\SelectConstraint;
 use Accelade\Filters\QueryBuilder\Constraints\TextConstraint;
 use Accelade\Filters\QueryBuilder\QueryBuilderFilter;
-use Tests\TestCase;
-
-uses(TestCase::class);
 
 it('can create a query builder filter', function () {
     $filter = QueryBuilderFilter::make('query');

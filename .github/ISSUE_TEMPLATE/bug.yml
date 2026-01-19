@@ -20,7 +20,7 @@ body:
           required: true
         - label: I have read the [documentation](../docs/)
           required: true
-        - label: I am using the latest version of Accelade Infolists
+        - label: I am using the latest version of Accelade Filters
           required: true
 
   - type: textarea
@@ -70,42 +70,38 @@ body:
       description: If applicable, provide a minimal code sample that reproduces the issue
       render: php
       placeholder: |
-        // Your Infolist definition
-        TextEntry::make('name')
-            ->label('Full Name')
-            ->badge();
+        // Your Filter definition
+        TextFilter::make('search')
+            ->label('Search')
+            ->placeholder('Search...');
 
   - type: dropdown
     id: component
     attributes:
       label: Affected Component
-      description: Which part of Accelade Infolists is affected?
+      description: Which part of Accelade Filters is affected?
       multiple: true
       options:
-        - TextEntry Component
-        - BadgeEntry Component
-        - IconEntry Component
-        - ImageEntry Component
-        - ColorEntry Component
-        - RatingEntry Component
-        - ProgressEntry Component
-        - CodeEntry Component
-        - QrCodeEntry Component
-        - KeyValueEntry Component
-        - RepeatableEntry Component
-        - MarkdownEntry Component
-        - HtmlEntry Component
-        - SecretEntry Component
-        - SeparatorEntry Component
-        - Infolist Container
+        - TextFilter Component
+        - SelectFilter Component
+        - BooleanFilter Component
+        - NumberFilter Component
+        - DateFilter Component
+        - DateRangeFilter Component
+        - NumberRangeFilter Component
+        - MultiSelectFilter Component
+        - TreeSelectFilter Component
+        - QueryBuilder Component
+        - Filter Panel
+        - JavaScript/TypeScript
         - Blade Views
         - Other
 
   - type: input
-    id: infolists-version
+    id: filters-version
     attributes:
-      label: Accelade Infolists Version
-      description: What version of Accelade Infolists are you using?
+      label: Accelade Filters Version
+      description: What version of Accelade Filters are you using?
       placeholder: "1.0.0"
     validations:
       required: true
